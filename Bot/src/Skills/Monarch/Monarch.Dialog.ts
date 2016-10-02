@@ -13,37 +13,12 @@ export class MonarchDialog {
     ) {
         bot.dialog(MonarchSkill.Dialogs.Register, [
             function (session) {
-                // call custom prompt
-                session.beginDialog(MonarchSkill.Dialogs.Authenticate, {
-                    prompt: MonarchMessage.promptForName(session),
-                    retryPrompt: MonarchMessage.announceNameIsInvalid()
-                });
-            },
-            function (session, results) {
-                // Check their name
-                if (results.response) {
-                    // console.log('got valid name: ', results.response)
-
-                    var name = results.response;
-
-                    // MonarchService.saveName(session, name);
-
-                    session.privateConversationData.name = name;
-
-                    session.send(MonarchMessage.welcomeByName(name));
-
-
-                } else {
-                    // session.send(MonarchMessage.announceNameIsInvalid());
-                }
+                session.send("Registration is not currently supported...");
                 session.endDialog();
             }
+
         ]);
 
-        bot.dialog(MonarchSkill.Dialogs.Authenticate, builder.DialogAction.validatedPrompt(
-            builder.PromptType.text, (name: string) => {
-                return name === 'orie';
-            }))
 
     }
 

@@ -6,8 +6,7 @@ var MonarchSkill = (function () {
     function MonarchSkill() {
     }
     MonarchSkill.Dialogs = {
-        Register: '/Register',
-        Authenticate: '/Authenticate'
+        Register: '/Register'
     };
     MonarchSkill.Intents = {
         Register: /^Register/i,

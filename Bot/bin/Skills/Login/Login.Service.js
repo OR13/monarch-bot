@@ -1,14 +1,6 @@
 "use strict";
 var builder = require('botbuilder');
 var firebase = require("firebase");
-var config = {
-    databaseURL: process.env.FIREBASE_DATABASE_URL,
-    serviceAccount: process.env.FIREBSAE_SERVICE_ACCOUNT_PATH,
-    databaseAuthVariableOverride: {
-        uid: "midas-service-account-worker"
-    }
-};
-firebase.initializeApp(config);
 var LoginService = (function () {
     function LoginService() {
     }

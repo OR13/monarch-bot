@@ -1,8 +1,15 @@
 
 
-import { MonarchSkill } from './Skills/Monarch/Monarch.Skill'
+
 
 var builder = require('botbuilder');
+
+var firebase = require('firebase');
+
+
+import { MonarchSkill } from './Skills/Monarch/Monarch.Skill'
+
+import { LoginSkill } from './Skills/Login/Login.Skill'
 
 export class Bot {
 
@@ -17,7 +24,23 @@ export class Bot {
 
             this.bot.dialog('/', intents);
 
+
+            // Initialize Firebase
+            // TODO: Replace with your project's customized code snippet
+            var config = {
+                  databaseURL: process.env.FB_MONARCH_CHAIN_DATABASE_URL,
+                  serviceAccount: process.env.FB_MONARCH_CHAIN_SERVICE_ACCOUNT,
+                  databaseAuthVariableOverride: {
+                        uid: "monarch-service-account-worker"
+                  }
+            };
+
+            firebase.initializeApp(config);
+
+
             // A Skill is a mapping of Intentions to Dialogs
+
+            LoginSkill.register(this.bot, intents);
 
             MonarchSkill.register(this.bot, intents);
 

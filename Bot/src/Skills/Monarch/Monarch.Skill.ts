@@ -8,8 +8,7 @@ import { MonarchService } from './Monarch.Service'
 export class MonarchSkill {
 
     static Dialogs = {
-        Register: '/Register',
-        Authenticate: '/Authenticate'
+        Register: '/Register'
     };
 
     static Intents = {

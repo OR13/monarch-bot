@@ -15,6 +15,20 @@ var LoginIntent = (function () {
                 session.send(Login_Message_1.LoginMessage.announceSessionIdenityChanged(session));
             }
         ]);
+        intents.onDefault([
+            function (session, args, next) {
+                // console.log('onDefault: ', session.privateConversationData)
+                if (!session.privateConversationData.token) {
+                    session.beginDialog(Login_Skill_1.LoginSkill.Dialogs.Login);
+                }
+                else {
+                    next();
+                }
+            },
+            function (session, results) {
+                session.send(Login_Message_1.LoginMessage.announceSessionIdenity(session));
+            }
+        ]);
     };
     return LoginIntent;
 }());
