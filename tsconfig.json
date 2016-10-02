@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES5",
+    "noImplicitAny": false,
+    "outDir": "./Bot/bin",
+    "rootDir": "./Bot/src",
+    "sourceMap": true
+  },
+  "exclude": [
+    "Dashboard",
+    "typings/browser.d.ts",
+    "typings/browser",
+    "node_modules"
+  ]
+}
