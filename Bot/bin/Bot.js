@@ -2,7 +2,7 @@
 var builder = require('botbuilder');
 var firebase = require('firebase');
 var Monarch_Skill_1 = require('./Skills/Monarch/Monarch.Skill');
-var Login_Skill_1 = require('./Skills/Login/Login.Skill');
+var HackerNews_Skill_1 = require('./Skills/HackerNews/HackerNews.Skill');
 var Bot = (function () {
     function Bot(connector) {
         this.connector = connector;
@@ -20,8 +20,9 @@ var Bot = (function () {
         };
         firebase.initializeApp(config);
         // A Skill is a mapping of Intentions to Dialogs
-        Login_Skill_1.LoginSkill.register(this.bot, intents);
+        // LoginSkill.register(this.bot, intents);
         Monarch_Skill_1.MonarchSkill.register(this.bot, intents);
+        HackerNews_Skill_1.HackerNewsSkill.register(this.bot, intents);
     }
     return Bot;
 }());

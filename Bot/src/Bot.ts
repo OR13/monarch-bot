@@ -8,8 +8,8 @@ var firebase = require('firebase');
 
 
 import { MonarchSkill } from './Skills/Monarch/Monarch.Skill'
-
 import { LoginSkill } from './Skills/Login/Login.Skill'
+import { HackerNewsSkill } from './Skills/HackerNews/HackerNews.Skill'
 
 export class Bot {
 
@@ -40,9 +40,11 @@ export class Bot {
 
             // A Skill is a mapping of Intentions to Dialogs
 
-            LoginSkill.register(this.bot, intents);
+            // LoginSkill.register(this.bot, intents);
 
             MonarchSkill.register(this.bot, intents);
+
+            HackerNewsSkill.register(this.bot, intents);
 
 
       }
